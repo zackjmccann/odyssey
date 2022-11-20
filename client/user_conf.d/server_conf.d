@@ -3,8 +3,17 @@ server {
     listen 443 ssl default_server reuseport;
     listen [::]:443 ssl default_server reuseport;
 
+    # serve content from /var/www/html
+    root /var/www/html;
+    index html/index.html
+
     # Domain names this server should respond to.
     server_name jamesmatter.art www.jamesmatter.art;
+
+    # 404 not found
+    location / {
+        try_files $uri $uri/ =404;
+    }
 
     # Load the certificate files.
     ssl_certificate         /etc/letsencrypt/live/jma-test/fullchain.pem;
