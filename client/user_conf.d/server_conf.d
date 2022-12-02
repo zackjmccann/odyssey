@@ -24,6 +24,6 @@ server {
     ssl_dhparam /etc/letsencrypt/dhparams/dhparam.pem;
 
     return 200 'Let\'s Encrypt certificate successfully installed!';
-    add_header Content-Type text/plain;
-}
+    add_header Content-Type text/plain:
 
+}
