@@ -1,3 +1,7 @@
 FROM nginx:1.23.2
-COPY ./client//var/www/html usr/share/nginx/html
-RUN apt-get update && apt-get install -y procps
+
+# Copy nginx configurations
+COPY *.conf /etc/nginx/conf.d/
+
+# Copy Web content
+COPY html/* /var/www/html/
